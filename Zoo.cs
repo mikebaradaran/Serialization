@@ -36,12 +36,12 @@ public class Zoo
     }
     public override string ToString()
     {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.Append($"Name:{zooName} start:{yearStarted}\n");
+        StringBuilder sb = new StringBuilder();
+        sb.Append($"Name:{zooName} start:{yearStarted}\n");
         foreach (var item in animals)
         {
-            stringBuilder.Append($"{item.ID}\t{item.Name}\n");
+            sb.Append($"{item.ID}\t{item.Name}\n");
         }
-        return stringBuilder.ToString();
+        return sb.ToString();
     }
 }

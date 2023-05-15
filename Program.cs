@@ -7,7 +7,7 @@ internal class Program
     static void Main(string[] args)
     {
         Save();
-        Load();
+        //Load();
     }
 
     static void Load() {
@@ -18,12 +18,13 @@ internal class Program
 
     static void Save() {
         Zoo zoo = new Zoo();
-        var options = new JsonSerializerOptions
-        {
-            WriteIndented = true
-        };
-        var strData = JsonSerializer.Serialize(zoo, options); //, options);
+        
+        var options = new JsonSerializerOptions { WriteIndented = true };
+
+        var strData = JsonSerializer.Serialize(zoo); //, options);
+        
         Console.WriteLine(strData);
+        
         File.WriteAllText("data.json", strData);
     }
 }
