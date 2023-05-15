@@ -12,23 +12,17 @@ internal class Program
 
     static void Load() {
         string strData = File.ReadAllText("data.json");
-
         var zoo = JsonSerializer.Deserialize<Zoo>(strData);
-        
-        Console.WriteLine( "\n" + zoo.zooName + "\t" + zoo.yearStarted);
-        
-        foreach (var item in zoo.animals) {
-            Console.WriteLine(item.ID + "\t" + item.Name);
-        }
+        Console.WriteLine(zoo);
     }
 
     static void Save() {
         Zoo zoo = new Zoo();
-        //var options = new JsonSerializerOptions
-        //{
-        //    WriteIndented = true
-        //};
-        var strData = JsonSerializer.Serialize(zoo); //, options);
+        var options = new JsonSerializerOptions
+        {
+            WriteIndented = true
+        };
+        var strData = JsonSerializer.Serialize(zoo, options); //, options);
         Console.WriteLine(strData);
         File.WriteAllText("data.json", strData);
     }
